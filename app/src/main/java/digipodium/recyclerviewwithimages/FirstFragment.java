@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -105,7 +107,12 @@ public class FirstFragment extends Fragment {
                 card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // todo load next fragment with details from this fragment
+                        SuperHero hero = (SuperHero) view.getTag(); // casting is necessary
+                        FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment();
+                        action.setTitle(hero.title);
+                        action.setDescription(hero.description);
+                        action.setImage(hero.imageUrl);
+                        Navigation.findNavController(view).navigate(action);
                     }
                 });
             }

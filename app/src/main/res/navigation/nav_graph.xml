@@ -24,5 +24,17 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Not a Hero" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue="Super secret info." />
+        <argument
+            android:name="image"
+            app:argType="string"
+            android:defaultValue="none" />
     </fragment>
 </navigation>
